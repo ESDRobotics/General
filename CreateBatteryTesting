@@ -1,0 +1,25 @@
+// Header Files
+#include <stdio.h>
+#include <kipr/botball.h>
+
+// Function Prototypes
+double getBatteryPercent();
+
+// Main Function
+int main() {
+    printf("<--- Create Battery --->\n\n");
+    printf("Charging State:  %d\n", get_create_battery_charging_state());
+    printf("Voltage:  %d\n", get_create_battery_voltage());
+    printf("Current:  %d\n", get_create_battery_current());
+    printf("Temperature:  %d\n", get_create_battery_temp());
+    printf("Charge:  %d\n", get_create_battery_charge());
+    printf("Capacity:  %d\n", get_create_battery_capacity()); 
+    printf("Percent:  %.2f\n", getBatteryPercent()); 
+
+    return 0;
+}
+
+// Returns percent of battery left on Create robot
+double getBatteryPercent() {
+    return (double) get_create_battery_charge() / get_create_battery_capacity() * 100;
+}
